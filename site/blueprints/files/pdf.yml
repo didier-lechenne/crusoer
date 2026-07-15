@@ -1,0 +1,20 @@
+title: PDF
+
+fields:
+  cover:
+    label: Couverture
+    type: files
+    multiple: false
+    accepts: image/*
+  caption:
+    label: Légende
+    type: writer
+    nodes: false
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - sub
+      - sup
+      - clear

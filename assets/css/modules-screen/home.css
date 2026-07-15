@@ -1,0 +1,109 @@
+/* ========================================================================
+   Accueil
+   ======================================================================== */
+
+main.home {
+  display: block;
+  width: 94%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+main.home .grid {
+  --gutter: var(--space-64);
+  width: auto;
+  list-style-type: none;
+  margin: auto;
+  margin-bottom: var(--space-96);
+}
+
+main.home .column {
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: 0;
+  position: relative;
+}
+
+main.home .column .auteur_date {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+main.home .column .auteur {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+main.home .column .titre {
+  font-family: var(--serif);
+  font-size: var(--h2-font-size);
+  font-weight: var(--labeur-weight);
+  line-height: var(--leading-none);
+  margin-bottom: var(--space-8);
+  margin-top: var(--space-12);
+  width: 100%;
+  text-align: center;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+main.home .column .date {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  text-align: center;
+
+  /* color: var(--color-muted); */
+}
+
+main.home .column .puce {
+  color: var(--color-muted);
+}
+
+main.home .column .intro p {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: var(--labeur-weight);
+  width: 100%;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  hyphens: auto;
+  margin-top: var(--space-16);
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+main.home .column::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: unset;
+  width: unset;
+  text-align: unset;
+  pointer-events: none;
+  font-weight: unset;
+}
+
+main.home hr {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+@media screen and (max-width: 60rem) {
+  main.home .grid {
+    --gutter: var(--space-32);
+    grid-template-columns: 1fr;
+    row-gap: var(--gutter);
+    width: 100%;
+  }
+
+  main.home {
+    width: calc(90%);
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}

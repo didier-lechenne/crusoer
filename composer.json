@@ -1,0 +1,12 @@
+{
+  "require": {
+    "getkirby/cli": "^1.9",
+    "bnomei/kirby-janitor": "^5.4",
+    "getkirby/kql": "^3.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    }
+  }
+}

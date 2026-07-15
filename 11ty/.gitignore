@@ -1,0 +1,8 @@
+.DS_Store
+/node_modules
+/_site
+.env
+
+# Fichiers de travail Eleventy
+*.pid
+eleventy.log

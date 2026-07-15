@@ -1,0 +1,136 @@
+.k-activation,
+.k-activation-button {
+  display: none;
+}
+
+/* Icônes de la barre de bloc — adaptées au thème clair/sombre */
+.k-block-container .k-block-options .k-button {
+  color: light-dark(#000, #fff);
+}
+.k-block-container .k-block-options .k-button:hover {
+  /* color: light-dark(#000, #fff); */
+}
+
+.k-dialog-body .k-column[style*="--width:"] {
+  position: relative;
+}
+
+/* Style de base pour toutes les colonnes */
+.k-dialog-body .k-column[style*="--width:"]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 0.65em;
+  color: var(--color-text-light);
+  opacity: 0.9;
+  /* font-weight: var(--font-semi); */
+  z-index: 1000;
+}
+
+.k-dialog-body .k-column[style*="--width: 1/12"]::after {
+  content: "1/12";
+}
+.k-dialog-body .k-column[style*="--width: 2/12"]::after {
+  content: "2/12";
+}
+.k-dialog-body .k-column[style*="--width: 3/12"]::after {
+  content: "3/12";
+}
+.k-dialog-body .k-column[style*="--width: 4/12"]::after {
+  content: "4/12";
+}
+.k-dialog-body .k-column[style*="--width: 5/12"]::after {
+  content: "5/12";
+}
+.k-dialog-body .k-column[style*="--width: 6/12"]::after {
+  content: "6/12";
+}
+.k-dialog-body .k-column[style*="--width: 7/12"]::after {
+  content: "7/12";
+}
+.k-dialog-body .k-column[style*="--width: 8/12"]::after {
+  content: "8/12";
+}
+.k-dialog-body .k-column[style*="--width: 9/12"]::after {
+  content: "9/12";
+}
+.k-dialog-body .k-column[style*="--width: 10/12"]::after {
+  content: "10/12";
+}
+.k-dialog-body .k-column[style*="--width: 11/12"]::after {
+  content: "11/12";
+}
+.k-dialog-body .k-column[style*="--width: 12/12"]::after {
+  content: "12/12";
+}
+
+/* Adaptation pour petits écrans */
+@media (max-width: 768px) {
+  .k-column::after {
+    font-size: 8px;
+    /* padding: 2px 5px; */
+  }
+}
+
+.pdf-block {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px 8px 0px;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  text-decoration: none;
+  color: inherit;
+}
+.pdf-block svg {
+  margin-right: 8px;
+  /* color: #e53935; */
+}
+.pdf-block:hover {
+  /* background-color: #f5f5f5; */
+}
+.pdf-empty {
+  padding: 10px;
+  text-align: center;
+  color: #777;
+  /* border: 1px dashed #ddd; */
+  /* border-radius: 4px; */
+}
+
+.k-markdown-input-wrap {
+  --cm-font-size: 18px !important; /* ou 1.1rem, etc. */
+  --cm-line-height: 1.6 !important; /* optionnel */
+  /* --cm-color-meta: rgb(138 92 245); */
+}
+
+/* .k-markdown-toolbar {
+  --markdown-toolbar-back: light-dark(white, var(--color-gray-850));
+}
+
+.k-markdown-input .cm-selectionBackground,
+.k-markdown-input .cm-focused .cm-selectionBackground {
+  background: light-dark(rgb(0 0 0 / 0.15), rgb(255 255 255 / 0.2)) !important;
+} */
+
+.k-panel[data-template="publication"] .k-column:last-child {
+  position: sticky;
+  top: 4rem;
+  align-self: start;
+}
+
+.tap-characters__item[title="Espace insécable"]::after {
+  content: "⎵ ";
+  font-size: 0.7em;
+  opacity: 0.6;
+  text-align: center;
+  box-sizing: content-box;
+}
+.tap-characters__item[title="Espace insécable fine"]::after {
+  content: "⎵̃";
+  font-size: 0.7em;
+  opacity: 0.6;
+  text-align: center;
+  box-sizing: content-box;
+}

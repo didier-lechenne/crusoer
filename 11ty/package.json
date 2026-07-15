@@ -1,0 +1,18 @@
+{
+  "name": "crusoer-11ty",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 npx eleventy",
+    "build:incremental": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 npx eleventy --incremental",
+    "serve": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 npx eleventy --serve --ignore-initial --incremental",
+    "preview": "eleventy-dev-server --dir=../static --port=8081",
+    "watch": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 npx eleventy --watch",
+    "debug": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 DEBUG=* npx eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "cross-env": "^7.0.3"
+  }
+}

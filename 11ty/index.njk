@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+permalink: /
+template: home
+---
+
+<main class="home">
+  {% if publications.length > 0 %}
+  <div class="grid">
+    {% for pub in publications %} {% if pub.home_principal %}
+    <div class="column" style="--columns: 4">
+      <a href="/publications/{{ pub.slug }}/#tab-principal">
+        <div class="auteur_date">
+          {% if pub.auteur_principal %}
+          <span class="auteur">{{ pub.auteur_principal | safe }}</span>
+          {% endif %} {% if pub.annee_principal %}
+          <span class="date"
+            ><span class="puce">/</span> {{ pub.annee_principal | safe }}</span
+          >
+          {% endif %}
+        </div>
+        <hr />
+        <h2 class="titre">
+          {{ pub.titre_principal_home | safe if pub.titre_principal_home else
+          pub.titre_principal | safe }}
+        </h2>
+        {% if pub.intro_principal %}
+        <div class="intro">{{ pub.intro_principal | safe }}</div>
+        {% endif %}
+      </a>
+    </div>
+    {% endif %} {% if pub.home_secondaire %}
+    <div class="column" style="--columns: 4">
+      <a href="/publications/{{ pub.slug }}/#tab-secondaire">
+        <div class="auteur_date">
+          {% if pub.auteur_secondaire %}
+          <span class="auteur">{{ pub.auteur_secondaire | safe }}</span>
+          {% endif %} {% if pub.annee_secondaire %}
+          <span class="date"
+            ><span class="puce">/</span> {{ pub.annee_secondaire | safe }}</span
+          >
+          {% endif %}
+        </div>
+        <hr />
+        <h2 class="titre">
+          {{ pub.titre_secondaire_home | safe if pub.titre_secondaire_home else
+          pub.titre_secondaire | safe }}
+        </h2>
+        {% if pub.intro_secondaire %}
+        <div class="intro">{{ pub.intro_secondaire | safe }}</div>
+        {% endif %}
+      </a>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+  {% endif %}
+</main>

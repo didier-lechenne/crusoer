@@ -1,0 +1,19 @@
+title: Cover
+
+extends: files/image
+
+fields:
+  aspectRatio:
+    label:
+      en: Image ratio
+      fr: Format d'image
+    type: select
+    default: "4:3"
+    options:
+      "16:9": "16:9 - Paysage large"
+      "4:3": "4:3 - Paysage classique"
+      "3:2": "3:2 - Photo standard"
+      "1:1": "1:1 - Carré"
+      "3:4": "3:4 - Portrait"
+      "9:16": "9:16 - Portrait vertical"
+    help: "Ratio d'affichage dans la grille"

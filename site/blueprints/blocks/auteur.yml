@@ -1,0 +1,19 @@
+name:
+  fr: Auteur·rice·s
+  en: Auteur·rice·s
+icon: user
+preview: text
+
+# extends: blocks/block-base-heading
+fields:
+  text:
+    label:
+      en: Author(s)
+      fr: Auteur·rice·s
+    type: writer
+    inline: true
+    marks:
+      - italic
+      - sub
+      - sup
+      - clear

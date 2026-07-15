@@ -1,0 +1,154 @@
+/* ========================================================================
+   Media — images, figures, figcaption, audio, vidéo
+   ======================================================================== */
+
+/* Images
+-------------------------------------------------- */
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.img {
+  position: relative;
+  padding-bottom: calc(var(--h) / var(--w) * 100%);
+  overflow: hidden;
+}
+
+.img img,
+.img picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Figures & légendes
+-------------------------------------------------- */
+figure {
+  position: relative;
+}
+
+figcaption {
+  font-family: var(--caption-font-family);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  font-weight: var(--caption-weight);
+
+  position: absolute;
+  right: var(--sidenote-offset);
+  width: var(--sidenote-width);
+  bottom: 0;
+  top: auto;
+}
+
+figure.caption-top figcaption {
+  top: 0;
+  bottom: auto;
+}
+
+figure.caption-below figcaption {
+  position: relative;
+  right: auto;
+  width: auto;
+  top: auto;
+  bottom: auto;
+  padding-top: var(--space-16);
+}
+
+@media screen and (max-width: 60rem) {
+  figcaption {
+    right: 0;
+    width: 100%;
+    position: relative;
+    padding-top: var(--space-16);
+  }
+}
+
+figcaption strong em,
+figcaption em strong {
+  font-weight: var(--caption-bold-weight);
+}
+
+figcaption strong {
+  font-weight: var(--caption-bold-weight);
+}
+
+/* Audio & Vidéo
+-------------------------------------------------- */
+figure.audio,
+figure.video {
+  max-width: 55%;
+  position: relative;
+  margin: var(--space-24) 0;
+}
+
+.video-container {
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+audio {
+  width: 100%;
+}
+
+.video iframe,
+.video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-facade {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.video-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-player {
+  position: absolute;
+  inset: 0;
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--link-color);
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* opacity: 0.9; */
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.video-play:hover {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--background-color);
+  margin-left: 0.2rem;
+}

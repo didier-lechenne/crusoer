@@ -1,0 +1,40 @@
+/*
+layout Tufte
+Author:  Didier Lechenne
+2025
+*/
+
+/* ========================================================================
+   Fondations
+   ======================================================================== */
+@import "modules-screen/variables.css";
+@import "modules-screen/reset.css";
+@import "modules-screen/color-theme.css";
+@import "fonts/fonts.css";
+
+/* ========================================================================
+   Typographie & éléments de base
+   ======================================================================== */
+@import "modules-screen/base.css";
+@import "modules-screen/heading.css";
+@import "modules-screen/list.css";
+
+/* ========================================================================
+   Composants
+   ======================================================================== */
+@import "modules-screen/flow.css";
+@import "modules-screen/sidenotes.css";
+@import "modules-screen/media.css";
+
+/* ========================================================================
+   Layout
+   ======================================================================== */
+@import "modules-screen/layout.css";
+@import "modules-screen/grid.css";
+
+/* ========================================================================
+   Pages
+   ======================================================================== */
+@import "modules-screen/home.css";
+@import "modules-screen/projet.css";
+@import "modules-screen/publication.css";

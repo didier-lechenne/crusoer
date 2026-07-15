@@ -1,0 +1,11 @@
+# git
+.gitattributes export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+
+# tests
+.php-cs-fixer.dist.php export-ignore
+phpmd.xml.dist export-ignore
+phpunit.xml.dist export-ignore
+psalm.xml.dist export-ignore
+tests/ export-ignore

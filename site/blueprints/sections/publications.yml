@@ -1,0 +1,13 @@
+type: pages
+headline: Publications
+parent: kirby.page("publications")
+template: publication
+templates:
+  - publication
+create:
+  - publication
+layout: list
+sortable: true
+image: false
+text: "{{ page.titrePrincipalTexte }} "
+info: "{{ page.titreSecondaireTexte }}"

@@ -1,0 +1,25 @@
+:where(sup) {
+	top: -0.5em;
+}
+
+:where(sup, sub) {
+	position: relative;
+	line-height: 0;
+	vertical-align: baseline;
+	font-size: 75%;
+}
+
+.k-markdown-input .cm-footnote-full {
+	opacity: 1;
+	color: var(--cm-color-meta);
+}
+
+/* Ensure (note: ...) styled as full footnote even when parsed as Kirbytag */
+.k-markdown-input .cm-footnote-full,
+.k-markdown-input .cm-footnote-full * {
+	background: transparent !important;
+	color: var(--cm-color-meta) !important;
+	font-weight: inherit !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}

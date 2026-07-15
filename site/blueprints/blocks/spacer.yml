@@ -1,0 +1,14 @@
+name: Espacement
+icon: angle-down
+
+fields:
+  spacer:
+    label:
+      en: Height
+      fr: Hauteur
+    type: number
+    default: 5
+    min: 1
+    step: 1
+    after: mm
+    help: Hauteur en mm

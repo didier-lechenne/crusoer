@@ -1,0 +1,29 @@
+name:
+  fr: PDF inline
+  en: PDF inline
+icon: file
+
+fields:
+  pdf:
+    label:
+      fr: Fichier PDF
+      en: PDF file
+    type: files
+    query: model.files().filterBy('template', 'pdf')
+    multiple: false
+    uploads:
+      template: pdf
+  height:
+    label:
+      fr: Hauteur (px)
+      en: Height (px)
+    type: number
+    default: 800
+    min: 200
+    width: 1/3
+  caption:
+    label:
+      fr: Légende
+      en: Caption
+    type: text
+    icon: text

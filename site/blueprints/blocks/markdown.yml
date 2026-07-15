@@ -1,0 +1,42 @@
+name: Texte (markdown)
+icon: markdown
+preview: markdown
+wysiwyg: true
+extends: blocks/extends-block-markdown-base
+fields:
+  text:
+    label:
+      en: Content
+      fr: Contenu
+    placeholder:
+      en: Write here…
+      fr: Écrivez ici…
+    type: markdown
+    font: sans-serif
+    spellcheck: false
+
+    buttons:
+      headlines:
+        - h2
+        - h3
+      bold: true
+      italic: true
+      link:
+        blank: true
+        options:
+          - page
+          - url
+          - email
+      strikethrough: true
+      ul: true
+      ol: true
+      footnote: true
+      invisibles: true
+      divider__0: true
+      exposants: true
+      guillemets-dropdown: true
+      smallcap: true
+      divider__1: true
+      space-nbsp: true
+      space-nnbsp: true
+      cite: true

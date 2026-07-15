@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: publications
+  size: 1
+  alias: pub
+permalink: /publications/{{ pub.slug }}/
+template: publication
+eleventyComputed:
+  title: "{{ pub.title | safe }}"
+---
+
+<main style="--color-muted: light-dark(rgb(93, 93, 93), rgb(179, 179, 179))">
+  {% set hasSecondaire = pub.contenu_secondaire %} {% if hasSecondaire %}
+
+  <div class="tabset-contenu">
+    <input type="radio" name="tabset" id="tab-principal" checked />
+    <input type="radio" name="tabset" id="tab-secondaire" />
+
+    {% if pub.chapo_principal %}
+    <div class="chapo chapo-tab chapo-tab-principal">
+      {{ pub.chapo_principal | safe }}
+    </div>
+    {% endif %} {% if pub.chapo_secondaire %}
+    <div class="chapo chapo-tab chapo-tab-secondaire">
+      {{ pub.chapo_secondaire | safe }}
+    </div>
+    {% endif %}
+
+    <div class="all-tab">
+      <label class="tabset-contenu" for="tab-principal"
+        >{{ pub.onglet_principal | safe }}</label
+      >
+      <label class="tabset-contenu" for="tab-secondaire"
+        >{{ pub.onglet_secondaire | safe }}</label
+      >
+    </div>
+
+    <div id="tab-panels" class="tab-panels">
+      <section id="tab1" class="tab-panel-contenu tab-panel-1">
+        {% if pub.auteur_principal or pub.annee_principal %}
+        <div class="projet-meta">
+          {% if pub.auteur_principal %}{{ pub.auteur_principal | safe }}{% endif %}
+          {% if pub.auteur_principal and pub.annee_principal %} <span class="puce">/</span> {% endif %}
+          {% if pub.annee_principal %}{{ pub.annee_principal | safe }}{% endif %}
+        </div>
+        {% endif %}
+        <h1 class="projet-titre">{{ pub.titre_principal | safe }}</h1>
+        {{ pub.contenu_principal | safe }}
+      </section>
+
+      <section id="tab2" class="tab-panel-contenu tab-panel-2">
+        {% if pub.auteur_secondaire or pub.annee_secondaire %}
+        <div class="projet-meta">
+          {% if pub.auteur_secondaire %}{{ pub.auteur_secondaire | safe }}{% endif %}
+          {% if pub.auteur_secondaire and pub.annee_secondaire %} <span class="puce">/</span> {% endif %}
+          {% if pub.annee_secondaire %}{{ pub.annee_secondaire | safe }}{% endif %}
+        </div>
+        {% endif %}
+        <h1 class="projet-titre">{{ pub.titre_secondaire | safe }}</h1>
+        {{ pub.contenu_secondaire | safe }}
+      </section>
+    </div>
+  </div>
+
+  {% else %} {% if pub.chapo_principal %}
+  <div class="chapo">{{ pub.chapo_principal | safe }}</div>
+  {% endif %}
+  {% if pub.auteur_principal or pub.annee_principal %}
+  <div class="projet-meta">
+    {% if pub.auteur_principal %}{{ pub.auteur_principal | safe }}{% endif %}
+    {% if pub.auteur_principal and pub.annee_principal %} <span class="puce">/</span> {% endif %}
+    {% if pub.annee_principal %}{{ pub.annee_principal | safe }}{% endif %}
+  </div>
+  {% endif %}
+  <h1 class="projet-titre">{{ pub.titre_principal | safe }}</h1>
+  <section class="pages main">{{ pub.contenu_principal | safe }}</section>
+
+  {% endif %}
+</main>

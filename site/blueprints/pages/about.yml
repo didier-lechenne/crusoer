@@ -1,0 +1,27 @@
+title: A propos
+pages: false
+fields:
+  titre_principal:
+    label:
+      en: Title
+      fr: Titre
+    type: writer
+    required: false
+    inline: true
+    width: 1/2
+    marks:
+      - italic
+      - sub
+      - sup
+      - clear
+
+  contenu_principal:
+    label:
+      en: Content
+      fr: Contenu
+    type: blocks
+    fieldsets:
+      - label: Texte
+        type: group
+        fieldsets:
+          - markdown

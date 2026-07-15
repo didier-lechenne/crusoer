@@ -1,0 +1,12 @@
+.pdf-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border-bottom: 0;
+}
+
+.pdf-block svg {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+}

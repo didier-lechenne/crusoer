@@ -1,0 +1,7 @@
+{
+  "name": "crusoer",
+  "private": true,
+  "dependencies": {
+    "dxfl": "^0.7.0"
+  }
+}

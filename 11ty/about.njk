@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+template: about
+eleventyComputed:
+  title: "{{ about.title | safe }}"
+---
+
+<main style="--color-muted: light-dark(rgb(93, 93, 93), rgb(179, 179, 179));">
+  <section>
+    <h1 class="projet-titre">{{ about.titre_principal | safe }}</h1>
+    {% if about.contenu_principal %}
+      {{ about.contenu_principal | safe }}
+    {% endif %}
+  </section>
+</main>

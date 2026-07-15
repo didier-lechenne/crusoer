@@ -1,0 +1,39 @@
+name: Texte (markdown col)
+icon: markdown
+preview: markdown
+
+extends: blocks/extends-block-markdown-column
+fields:
+  text:
+    label:
+      en: Content
+      fr: Contenu
+    placeholder:
+      en: Write here…
+      fr: Écrivez ici…
+    type: markdown
+    buttons:
+      headlines:
+        - h2
+        - h3
+      bold: true
+      italic: true
+      link:
+        blank: true
+        options:
+          - url
+          - page
+      strikethrough: true
+      footnote: true
+      invisibles: true
+      divider__0: true
+      exposants: true
+      guillemets-dropdown: true
+      smallcap: true
+      divider__1: true
+      space-nbsp: true
+      space-nnbsp: true
+      cite: true
+
+    font: sans-serif
+    spellcheck: false

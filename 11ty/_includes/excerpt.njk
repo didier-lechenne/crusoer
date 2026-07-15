@@ -1,0 +1,9 @@
+<a href="/publications/{{ pub.slug }}/">
+  <h2 class="projet-excerpt-title">{{ pub.titre_principal | safe }}</h2>
+  {% if pub.auteur_principal %}
+  <div class="projet-excerpt-auteur">{{ pub.auteur_principal | safe }}</div>
+  {% endif %}
+  {% if pub.annee_principal %}
+  <div class="projet-excerpt-year">{{ pub.annee_principal | safe }}</div>
+  {% endif %}
+</a>

@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+
+# cs fixer
+.php-cs-fixer.cache
+
+# editors
+*.sublime-project
+*.sublime-workspace
+/.idea
+
+# tests
+.phpunit.result.cache
+/tests/coverage
+
+# Composer files
+/vendor

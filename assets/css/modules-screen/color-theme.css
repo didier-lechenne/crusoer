@@ -1,0 +1,24 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* === Couleurs de bloc (panel) : light / dark === */
+.has-block-color {
+  --block-color-dark-fallback: color-mix(
+    in oklch,
+    var(--block-color-light) 40%,
+    white
+  );
+  color: var(--block-color-light);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .has-block-color {
+    color: var(--block-color-dark, var(--block-color-dark-fallback));
+  }
+}
+[data-theme="dark"] .has-block-color {
+  color: var(--block-color-dark, var(--block-color-dark-fallback));
+}

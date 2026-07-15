@@ -1,0 +1,82 @@
+# Content
+# ------------
+/content/*
+/content-local/
+/static
+
+# Fonts
+# ------------
+# /assets/css/fonts/*
+
+
+# System files
+# ------------
+
+Icon
+.DS_Store
+
+# Composer files
+# ---------------
+/vendor
+/site/plugins/kql
+/site/plugins/kirby-janitor
+
+# Node files
+# ---------------
+/node_modules
+
+
+# Temporary files
+# ---------------
+
+/media/*
+!/media/index.html
+/site/logs/
+
+# Lock files
+# ---------------
+
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.vscode
+/.idea
+/.claude
+/.playwright-mcp
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Cache Files
+# ---------------
+
+/site/cache/*
+!/site/cache/index.html
+.env
+/site/config/config.secrets.php
+
+# Logs
+# ---------------
+
+/logs/
+
+# Accounts
+# ---------------
+
+/site/accounts/*
+!/site/accounts/index.html
+
+# Sessions
+# ---------------
+
+/site/sessions/*
+!/site/sessions/index.html
+
+# License
+# ---------------
+
+/site/config/.license
+/site/config/config.crusoer_propre.test.php

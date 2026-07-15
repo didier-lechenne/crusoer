@@ -1,0 +1,16 @@
+{
+    "name": "dlechenne/audio-block",
+    "description": "A Kirby plugin for audio blocks",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Didier Lechenne",
+            "email": "didier@lechenne.fr"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    }
+}

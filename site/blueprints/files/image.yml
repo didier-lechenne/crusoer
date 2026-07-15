@@ -1,0 +1,59 @@
+title: Fichier
+
+fields:
+  caption:
+    label:
+      en: Caption
+      fr: Légende
+    type: writer
+    inline: true
+    width: 1/2
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - sub
+      - sup
+      - clear
+
+  captionLocation:
+    label:
+      en: Caption location
+      fr: Emplacement légende
+    type: toggles
+    labels: false
+    default: below
+    options:
+      - value: margin
+        text: { en: Margin, fr: Marge }
+        icon: text-right
+      - value: below
+        text: { en: Below, fr: Sous l'image }
+        icon: text-bottom
+    width: 1/2
+  alt:
+    label:
+      en: Alt text
+      fr: Alternative textuelle
+    type: text
+    width: 1/2
+    help: "Description de l'image pour l'accessibilité"
+
+  captionAlign:
+    label:
+      en: Caption align (margin only)
+      fr: Alignement légende (marge)
+    type: toggles
+    labels: false
+    default: bottom
+    when:
+      captionLocation: margin
+    options:
+      - value: top
+        text: { en: Top, fr: Haut }
+        icon: text-top
+      - value: bottom
+        text: { en: Bottom, fr: Bas }
+        icon: text-bottom
+    width: 1/2

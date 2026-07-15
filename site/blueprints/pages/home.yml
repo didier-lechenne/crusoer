@@ -1,0 +1,7 @@
+title: Home
+
+options:
+  changeTitle: false
+  changeSlug: false
+  changeStatus: false
+  delete: false

@@ -1,0 +1,98 @@
+fields:
+  # color
+  # textColor:
+  #   label:
+  #     en: Color
+  #     fr: Couleur
+  #   type: color
+  #   format: rgb
+  #   alpha: true
+  #   width: 1/4
+
+  # text align
+  textAlign:
+    label:
+      en: Text alignment
+      fr: Alignement
+    type: toggles
+    labels: false
+    default: justify
+    options:
+      - value: left
+        text:
+          en: Left
+          fr: Gauche
+        icon: text-left
+      - value: center
+        text:
+          en: Center
+          fr: Centre
+        icon: text-center
+      - value: right
+        text:
+          en: Right
+          fr: Droite
+        icon: text-right
+      - value: justify
+        text:
+          en: Justify
+          fr: Justifier
+        icon: text-justify
+    width: 1/3
+
+  # font family
+  fontFamily:
+    label:
+      en: Font family
+      fr: Police
+    type: toggles
+    labels: true
+    default: serif
+    options:
+      - value: sans
+        text: Sans
+      - value: serif
+        text: Serif (default)
+    width: 1/3
+
+  fontSize:
+    label:
+      en: Font size
+      fr: Taille
+    type: select
+
+    options:
+      caption: "Petit (caption)"
+      notes: "Moyen (notes)"
+      labeur: "Normal (labeur)"
+    width: 1/3
+
+  verticalAlign:
+    label:
+      en: Vertical align
+      fr: Alignement vertical
+    type: toggles
+    labels: false
+    default: self-start
+    options:
+      - value: self-start
+        text:
+          en: Top
+          fr: Haut
+        icon: text-top
+      - value: self-center
+        text:
+          en: Center
+          fr: Centre
+        icon: text-middle
+      - value: self-end
+        text:
+          en: Bottom
+          fr: Bas
+        icon: text-bottom
+    width: 1/4
+
+  class:
+    label: Class
+    type: text
+    width: 1/4

@@ -1,0 +1,87 @@
+/* ========================================================================
+   Projet & About — templates projet, about, navigation
+   ======================================================================== */
+
+/* À propos
+-------------------------------------------------- */
+.about {
+  max-width: 45em;
+}
+
+.about .grid p {
+  margin-bottom: 0;
+}
+
+/* Chapo
+-------------------------------------------------- */
+.chapo {
+  column-count: 2;
+  column-gap: calc(var(--gutter) * 1);
+  width: 80%;
+  margin-bottom: var(--space-24);
+  /* color: var(--color-muted); */
+  color: var(--chapo);
+}
+
+.chapo + .projet-meta {
+  margin-top: var(--space-32);
+}
+
+.chapo p {
+  font-family: var(--chapo-font-family);
+  font-size: var(--chapo-font-size);
+  line-height: var(--leading-normal);
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  text-wrap: pretty;
+  margin-bottom: var(--space-24);
+  width: 100%;
+  hyphens: auto;
+}
+
+.chapo p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 60rem) {
+  .chapo {
+    column-count: 1;
+    column-gap: calc(var(--gutter) * 1);
+    width: 100%;
+    margin-bottom: var(--space-48);
+    color: var(--chapo);
+  }
+  .chapo p {
+    hyphens: manual;
+    hyphenate-limit-chars: 6 3 3;
+  }
+}
+
+/* Project meta
+-------------------------------------------------- */
+.meta {
+  margin-bottom: var(--space-24);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+.meta li {
+  list-style: none;
+}
+.meta li b {
+  font-weight: 400;
+  color: var(--text-color);
+  padding-right: var(--space-4);
+}
+
+/* Next/Précédent
+-------------------------------------------------- */
+.nextprev {
+  padding: var(--space-16) 0;
+}
+.nextprev a {
+  border: 0;
+}
+.nextprev .prev + .nextprev .next {
+  margin-left: var(--space-16);
+}

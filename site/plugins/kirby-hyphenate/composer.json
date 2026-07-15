@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./lib/syllable"
+        }
+    ],
+    "require": {
+        "vanderlee/syllable": "*"
+    }
+}

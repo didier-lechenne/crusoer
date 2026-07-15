@@ -1,0 +1,28 @@
+name: field.blocks.heading.name
+icon: title
+wysiwyg: true
+preview: heading
+extends: blocks/extends-block-heading
+fields:
+  level:
+    label: field.blocks.heading.level
+    type: select
+    empty: false
+    default: "h3"
+    width: 1/6
+    options:
+      - h2
+      - h3
+  text:
+    label: field.blocks.heading.text
+    type: writer
+    inline: true
+    width: 6/6
+    placeholder: field.blocks.heading.placeholder
+    nodes: false
+    marks:
+      - bold
+      - italic
+      - sub
+      - sup
+      - clear

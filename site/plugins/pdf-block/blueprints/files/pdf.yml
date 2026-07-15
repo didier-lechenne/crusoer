@@ -1,0 +1,11 @@
+title: PDF
+
+fields:
+  cover:
+    label: Couverture
+    type: files
+    multiple: false
+    accepts: image/*
+  caption:
+    label: Légende
+    type: text

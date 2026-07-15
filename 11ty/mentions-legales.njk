@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+permalink: /mentions-legales/
+template: mentions-legales
+eleventyComputed:
+  title: "{{ mentions.title | safe }}"
+---
+
+<main style="--color-muted: light-dark(rgb(93, 93, 93), rgb(179, 179, 179));">
+  <section>
+    <h1 class="projet-titre">{{ mentions.titre_principal | safe }}</h1>
+    {% if mentions.contenu_principal %}
+      {{ mentions.contenu_principal | safe }}
+    {% endif %}
+  </section>
+</main>

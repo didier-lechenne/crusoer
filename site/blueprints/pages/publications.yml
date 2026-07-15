@@ -1,0 +1,8 @@
+title: Publications
+
+sections:
+
+  projects:
+    extends: sections/publications
+    status: all
+    layout: list

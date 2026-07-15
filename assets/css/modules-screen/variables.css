@@ -1,0 +1,115 @@
+:root {
+  color-scheme: light dark;
+  /* Familles typographiques */
+  --sans: "inter", sans-serif;
+  /* --serif: "Adelphe Germinal", serif; */
+  --serif: "Crimson Pro", serif;
+  /* --serif: "IBM Plex Serif", serif; */
+
+  /* Couleurs */
+  --text-color: light-dark(rgb(0, 0, 0), rgb(220, 220, 218));
+  --color-primary: var(--text-color);
+
+  --background-color: light-dark(
+    var(--bg-color-light, rgb(245, 245, 245)),
+    var(--bg-color-dark, rgb(38, 38, 38))
+  );
+
+  --color: light-dark(rgba(0, 0, 0, 0.85), rgba(220, 220, 218, 0.85));
+  --accentcolor: light-dark(black, rgb(220, 220, 218));
+  --color-subdued: light-dark(rgba(0, 0, 0, 0.8), rgba(220, 220, 218, 0.8));
+  --color-muted: light-dark(rgb(93, 93, 93), rgb(179, 179, 179));
+  --chapo: light-dark(oklch(0.466 0.025 107.3), oklch(0.872 0.007 219.6));
+  --link-color: light-dark(var(--link-color-light), var(--link-color-dark));
+
+  /* chapo */
+  --chapo-font-family: var(--sans);
+  --chapo-font-size: var(--text-sm);
+
+  --h1-font-size: var(--text-2xl);
+  --h2-font-size: var(--text-xl);
+  --h3-font-size: var(--text-lg);
+
+  /* En-têtes */
+  --heading-font-family: var(--serif);
+  --heading-line-height: var(--leading-normal);
+  --heading-weight: 700;
+
+  /* Labeur */
+  --labeur-font-family: var(--serif);
+  --labeur-font-size: var(--text-lg);
+  --labeur-line-height: var(--leading-snug);
+  --labeur-weight: 400;
+  --labeur-bold-weight: 700;
+  --user-labeur-font-size: var(--labeur-font-size);
+
+  /* Légendes */
+  --caption-font-family: var(--sans);
+  --caption-font-size: var(--text-xs);
+  --caption-line-height: var(--leading-normal);
+  --caption-weight: 300;
+  --caption-bold-weight: 400;
+  --caption-text-color: var(--text-color);
+
+  /* Notes */
+  --note-font-family: var(--labeur-font-family);
+  --note-font-size: var(--text-md);
+  --note-line-height: var(--leading-tight);
+  --note-weight: 300;
+  --note-bold-weight: 400;
+  --note-text-color: var(--text-color);
+
+  /* Appels de note */
+  --note-call-size: 0.75em;
+  --note-call-text-color: var(--link-color);
+  --note-call-weight: 300;
+
+  /* Rythme */
+  --gutter: var(--space-24);
+
+  /*ratio 0.7 Espacement — clamp(min×0.7, intercept + slope×vw, max) — 360→1440px */
+  --space-4: clamp(0.175rem, 0.15rem + 0.1111vw, 0.25rem);
+  --space-8: clamp(0.35rem, 0.3rem + 0.2222vw, 0.5rem);
+  --space-12: clamp(0.525rem, 0.45rem + 0.3333vw, 0.75rem);
+  --space-16: clamp(0.7rem, 0.6rem + 0.4444vw, 1rem);
+  --space-24: clamp(1.05rem, 0.9rem + 0.6667vw, 1.5rem);
+  --space-32: clamp(1.4rem, 1.2rem + 0.8889vw, 2rem);
+  --space-48: clamp(2.1rem, 1.8rem + 1.3333vw, 3rem);
+  --space-64: clamp(2.8rem, 2.4rem + 1.7778vw, 4rem);
+  --space-96: clamp(4.2rem, 3.6rem + 2.6667vw, 6rem);
+
+  /* Échelle typographique */
+  --text-xs: clamp(12.5px, 12.04px + 0.1286vw, 13.89px);
+  --text-sm: clamp(15px, 14.44px + 0.1543vw, 16.67px);
+  --text-md: clamp(18px, 17.33px + 0.1852vw, 20px);
+  --text-lg: clamp(21.6px, 20.8px + 0.2222vw, 24px);
+  --text-xl: clamp(25.92px, 24.96px + 0.2667vw, 28.8px);
+  --text-2xl: clamp(31.1px, 29.95px + 0.32vw, 34.56px);
+  --text-3xl: clamp(37.32px, 35.94px + 0.384vw, 41.47px);
+  --text-4xl: clamp(44.79px, 43.13px + 0.4608vw, 49.77px);
+
+  /* Interlignages */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Tufte : sidenotes */
+  --sidenote-width: 50%;
+  --sidenote-offset: -60%;
+
+  /* Listes */
+  --list-marker-color: var(--color-text);
+  --list-bullet-size: 0.4em;
+  --list-dash-width: 0.8em;
+  --list-indent: 2ch;
+
+  --h1-letter-spacing: -0.015em;
+  --h2-letter-spacing: -0.011em;
+  --h3-letter-spacing: -0.008em;
+  --h4-letter-spacing: -0.005em;
+  --h5-letter-spacing: -0.002em;
+  --h6-letter-spacing: 0em;
+}

@@ -1,0 +1,13 @@
+name: PDF (lien)
+icon: document
+wysiwyg: true
+fields:
+  pdf_file:
+    label: Lien PDF
+    type: files
+    multiple: false
+    uploads: true
+    accepts: application/pdf
+  caption:
+    label: Légende
+    type: text

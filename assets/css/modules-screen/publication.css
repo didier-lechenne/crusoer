@@ -1,0 +1,104 @@
+/* ========================================================================
+   Publication — tabset, onglets contenu
+   ======================================================================== */
+
+/* tabset-contenu (radio inputs)
+-------------------------------------------------- */
+.all-tab {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: linear-gradient(
+    to bottom,
+    var(--background-color) 100%,
+    transparent
+  );
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+  font-size: var(--text-sm);
+  transition: background 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.all-tab::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  inset-inline: 0;
+  top: 0px;
+  background: var(--accentcolor);
+  width: 90%;
+  opacity: 0.2;
+}
+
+.tabset-contenu input[type="radio"] {
+  display: none;
+}
+
+.chapo-tab {
+  display: none;
+}
+#tab-principal:checked ~ .chapo-tab-principal {
+  display: block;
+}
+#tab-secondaire:checked ~ .chapo-tab-secondaire {
+  display: block;
+}
+
+label.tabset-contenu {
+  cursor: pointer;
+  opacity: 0.4;
+  margin-right: var(--space-32);
+  transition: opacity 0.3s;
+  position: relative;
+  font-family: var(--sans);
+}
+
+label.tabset-contenu:hover {
+  opacity: 0.7;
+}
+
+#tab-principal:checked ~ .all-tab label[for="tab-principal"],
+#tab-secondaire:checked ~ .all-tab label[for="tab-secondaire"] {
+  opacity: 1;
+  color: var(--link-color);
+}
+
+#tab-principal:checked ~ .all-tab label[for="tab-principal"]::after,
+#tab-secondaire:checked ~ .all-tab label[for="tab-secondaire"]::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  inset-inline: 0;
+  bottom: -5px;
+  background: var(--link-color);
+}
+
+.tabset-contenu .tab-panels .tab-panel-contenu {
+  display: none;
+}
+
+#tab-principal:checked ~ .tab-panels .tab-panel-1,
+#tab-secondaire:checked ~ .tab-panels .tab-panel-2 {
+  display: block;
+}
+
+.tab-panel-contenu {
+  margin-top: var(--space-24);
+}
+
+@media screen and (max-width: 60rem) {
+  .all-tab {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .all-tab::before {
+    width: 100%;
+  }
+
+  label.tabset-contenu {
+    width: 100%;
+    margin-right: 0;
+  }
+}

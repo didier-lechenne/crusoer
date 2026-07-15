@@ -1,0 +1,278 @@
+/* ========================================================================
+   Sidenotes & Notes de référence
+   ======================================================================== */
+
+/* Sidenotes
+-------------------------------------------------- */
+.sn-toggle {
+  display: none;
+}
+.sn-toggle:checked + .sn-note {
+  display: block;
+}
+.sn-toggle-label,
+sup a.footnote-ref {
+  padding: 0 0 0.25em 0.15em;
+  position: relative;
+  text-decoration: none;
+  border: none;
+  color: var(--note-call-text-color);
+  cursor: pointer;
+  font-weight: var(--note-call-weight);
+  font-size: 0.75em;
+  /* font-weight: bold; */
+  letter-spacing: 0.05em;
+  position: relative;
+  text-decoration: none;
+  vertical-align: super;
+}
+
+/* Appels de note : crochets */
+.sn-toggle-label.sn-image::before,
+.sn-toggle-label::before {
+  content: "";
+}
+
+.sn-toggle-label.sn-image::after,
+.sn-toggle-label::after {
+  content: "";
+}
+/* pas de crochets pour les images */
+/* .sn-toggle-label.sn-image::before,
+.sn-toggle-label.sn-image::after {
+  content: none;
+} */
+
+.sn-note::before {
+  float: left;
+  /* padding-top: 0.75em; */
+  padding-right: 0.5em;
+  content: "" attr(data-ref) ".";
+  color: var(--link-color);
+  /* font-size: 0.9em; */
+  /* font-size: 0.875rem; */
+  font-variant-numeric: normal;
+  vertical-align: baseline;
+}
+
+.sn-note.sn-image::before {
+  content: "";
+}
+
+/* Appels de note (références)
+-------------------------------------------------- */
+sup[id^="fn"] {
+  vertical-align: baseline;
+}
+sup a.footnote-ref {
+  color: var(--accentcolor);
+  /* font-weight: 700; */
+}
+
+/* Appel de note kirby-footnotes */
+sup.footnote a {
+  color: var(--note-call-text-color);
+  font-weight: var(--note-call-weight);
+  font-size: var(--note-call-size);
+  text-decoration: none;
+  border: none;
+}
+
+/* Tufte: sidenotes à 50% largeur, positionnées à -60%
+-------------------------------------------------- */
+.sn-note {
+  top: 0.25em;
+  font-family: var(--note-font-family);
+  font-size: var(--note-font-size);
+  line-height: var(--note-line-height);
+  font-weight: var(--note-weight);
+  color: var(--note-text-color);
+  float: right;
+  clear: right;
+  margin-bottom: var(--space-24);
+  position: relative;
+  margin-right: var(--sidenote-offset); /* Tufte: -60% */
+  width: var(--sidenote-width); /* Tufte: 50% */
+  margin-top: 0.3rem;
+  vertical-align: baseline;
+  font-style: normal;
+  text-align: left;
+  hyphens: none;
+}
+
+blockquote .sn-note {
+  padding-left: var(--space-16);
+}
+
+.sn-note strong {
+  font-weight: var(--note-bold-weight);
+}
+
+.sn-note em,
+.sn-note i {
+  font-style: italic;
+}
+
+.sn-note strong em,
+.sn-note em strong {
+  font-style: italic;
+}
+
+.sn-note :first-child {
+  margin-top: 0;
+}
+.sn-note img {
+  display: block;
+}
+.sn-note p {
+  margin: 0;
+  width: auto;
+}
+.sn-note .caption {
+  display: block;
+  margin-top: 0.25em;
+}
+.sn-note .footnotereverse {
+  display: none;
+}
+
+@media screen and (max-width: 60rem) {
+  /* 960px */
+  .sn-note {
+    display: none;
+  }
+  .sn-toggle:checked + .sn-note {
+    display: block;
+    float: left;
+    clear: both;
+    /* left: var(--space-16); */
+    width: 95%;
+    margin: var(--space-16) var(--space-16);
+    top: 0;
+    position: relative;
+  }
+  label[for^="sn-"] {
+    color: var(--note-call-text-color);
+    cursor: pointer;
+    font-weight: var(--note-call-weight);
+  }
+}
+
+/* Imagenotes & Pdfnotes
+-------------------------------------------------- */
+/* positionnement hérité de .sn-note */
+.imagenote,
+.pdfnote {
+  width: 30%;
+  margin-right: -40%;
+}
+
+.pdfnote svg {
+  width: 50px;
+  aspect-ratio: 3/4;
+}
+
+main a.pdf-block {
+  border-bottom: 0px solid #aaa;
+}
+
+.pdf-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border-bottom: 0;
+}
+.pdf-block svg {
+  width: 1.8em;
+  height: 1.8em;
+  flex-shrink: 0;
+}
+
+.imagenote.fullwidth,
+.pdfnote.fullwidth {
+  margin-right: var(--sidenote-offset);
+  width: var(--sidenote-width);
+}
+
+.imagenote::before,
+.pdfnote::before {
+  content: none;
+}
+
+.imagenote .figcaption,
+.imagenote figcaption,
+.pdfnote .figcaption,
+.pdfnote figcaption {
+  padding: var(--space-8) 0;
+  display: block;
+  text-indent: 0;
+  text-wrap: pretty;
+  font-family: var(--caption-font-family);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  color: var(--text-color);
+  font-weight: var(--caption-weight);
+}
+
+@media screen and (max-width: 60rem) {
+  .imagenote,
+  .imagenote.fullwidth,
+  .pdfnote,
+  .pdfnote.fullwidth {
+    display: block; /* override .sn-note { display: none } */
+    margin: var(--space-8) var(--space-16) var(--space-32) 0;
+    float: left;
+    clear: left;
+    width: 40%;
+  }
+  .imagenote .figcaption,
+  .pdfnote .figcaption {
+    padding: var(--space-8) 0 0 0;
+  }
+}
+
+/* Notes de bas de page
+-------------------------------------------------- */
+.footnotes-list {
+  list-style: decimal;
+  list-style-position: outside;
+  padding-left: var(--space-24);
+}
+
+.footnotes-list > li {
+  list-style: decimal;
+}
+
+/* default footnotes (no js) */
+.footnotes {
+  max-width: var(--p-width);
+  margin-top: var(--space-32);
+  padding-top: var(--space-16);
+}
+.footnotes ol {
+  font-size: var(--text-sm);
+  padding-left: var(--space-16);
+}
+.footnotes :target {
+  background: var(--footnote-highlight);
+}
+hr.footnotes-sep {
+  background: none;
+  border: none;
+  margin: 0;
+  width: 4em;
+}
+
+/* kirby-footnotes : container en bas de page (mode footnotes) */
+.footnotes-container {
+  margin-top: var(--space-32);
+  padding-top: var(--space-16);
+  border-top: 1px solid currentColor;
+  font-size: var(--note-font-size);
+  line-height: var(--note-line-height);
+}
+
+/* mode sidenotes : masquer la liste en bas */
+[data-notes-mode="sidenotes"] .footnotes-container {
+  display: none;
+}

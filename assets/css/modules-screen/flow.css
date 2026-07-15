@@ -1,0 +1,51 @@
+/* ========================================================================
+   Flow — espacement entre blocs Kirby (data-block)
+   Principe : la marge appartient à l'élément QUI PRÉCÈDE (margin-bottom),
+   sélectionnée selon ce qui suit via :has(+ …).
+   ======================================================================== */
+
+/* Premier enfant de main : reset du margin-top hérité des titres (heading.css) */
+main > :first-child {
+  margin-top: 0;
+}
+
+/* Inter-blocs : la marge est portée par le bloc précédent */
+[data-block]:has(+ [data-block]) {
+  margin-bottom: var(--space-24);
+}
+
+[data-block="heading"]:has(+ [data-block]) {
+  margin-bottom: var(--space-16);
+}
+
+[data-block]:has(+ [data-block="heading"]) {
+  margin-bottom: var(--space-48);
+}
+
+/* Paragraphes consécutifs (hors blocs) */
+p:has(+ p) {
+  margin-bottom: var(--space-16);
+}
+
+/* Intra-bloc markdown (enfants directs) */
+[data-block="markdown"] > *:has(+ *) {
+  /* margin-bottom: var(--space-16); */
+}
+
+[data-block="markdown"] > *:has(+ :is(h2, h3, h4)) {
+  margin-bottom: var(--space-48);
+}
+
+[data-block="markdown"] > :is(h2, h3, h4):has(+ *) {
+  /* margin-bottom: var(--space-16); */
+}
+
+[data-block="markdown"] > :first-child:not(:is(h2, h3, h4)) {
+  margin-top: 0;
+}
+
+/* h3 collé à son markdown : pas de gap */
+[data-block="heading"]:has(h3):has(+ [data-block="markdown"]),
+h3:has(+ [data-block="markdown"]) {
+  margin-bottom: 0 !important;
+}

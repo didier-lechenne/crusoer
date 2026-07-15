@@ -1,0 +1,136 @@
+/* ========================================================================
+   Base — html, body, liens, typographie globale
+   ======================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--link-color);
+  color: var(--background-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--labeur-font-family);
+  font-size: var(--labeur-font-size);
+  line-height: initial;
+  font-weight: var(--labeur-weight);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  transition: background-color 0.3s, color 0.3s;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  font-feature-settings: "liga";
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Liens
+-------------------------------------------------- */
+a {
+  color: currentColor;
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+}
+
+section a {
+  text-decoration: underline;
+  text-decoration-color: var(--link-color, currentColor);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  transition: color 0.3s, background 0.3s, border 0.3s;
+}
+
+a:hover {
+  color: var(--text-color);
+}
+
+body > header > a,
+.header .logo > a,
+a[aria-current] {
+  color: var(--color-primary);
+}
+
+/* sup sub
+-------------------------------------------------- */
+sup,
+sub {
+  vertical-align: baseline;
+  font-size: 65%;
+  line-height: 0;
+}
+
+sup {
+  vertical-align: super;
+}
+sub {
+  vertical-align: sub;
+}
+
+/* Blockquote
+-------------------------------------------------- */
+blockquote {
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-48);
+}
+
+blockquote p {
+  font-style: normal;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+  width: 55%;
+}
+
+blockquote cite {
+  --align: right;
+  font-style: italic;
+  text-align: right;
+  display: block;
+  width: 100%;
+  text-align-last: var(--align);
+}
+
+@media screen and (max-width: 60rem) {
+  blockquote * {
+    width: 100%;
+  }
+}
+
+/* Petites capitales
+-------------------------------------------------- */
+.smallcaps {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+}
+
+.smallcaps + sup {
+  font-size: 0.6em;
+  vertical-align: 0.4em;
+}
+
+/* Code
+-------------------------------------------------- */
+code {
+  font-size: 16px;
+  color: var(--link-color);
+  line-height: 1.4;
+  display: block;
+}
+
+code::before {
+  content: "(";
+}
+
+code::after {
+  content: ")";
+}

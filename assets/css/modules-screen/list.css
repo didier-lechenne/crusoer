@@ -1,0 +1,73 @@
+/* ========================================================================
+   Listes — ul, ol
+   ======================================================================== */
+
+/* Base
+-------------------------------------------------- */
+ul {
+  list-style-position: inside;
+}
+
+li {
+  list-style: none;
+}
+
+/* Listes dans main
+-------------------------------------------------- */
+main ul {
+  list-style-type: "\200B"; /* Caractère invisible */
+  padding-left: 0;
+  /* margin-top: var(--space-16) !important; */
+  margin-bottom: var(--space-16) !important;
+}
+
+main ul li {
+  padding-top: calc(1ch / 4);
+  padding-bottom: calc(1ch / 4);
+  margin-left: var(--list-indent);
+  position: relative;
+  text-align: start;
+}
+
+main ul li::marker {
+  color: transparent;
+  content: "";
+}
+
+main ul li::before {
+  content: "–";
+  position: absolute;
+  left: calc(-1 * var(--list-indent) + 0ch);
+  top: 0.15em;
+  color: var(--list-marker-color);
+  width: var(--list-dash-width);
+  text-align: center;
+  pointer-events: none;
+  font-weight: normal;
+}
+
+main ol {
+  list-style: none;
+  counter-reset: ol-counter;
+  /* margin-top: var(--space-16) !important; */
+  margin-bottom: var(--space-16) !important;
+}
+
+main ol li {
+  counter-increment: ol-counter;
+  position: relative;
+  padding-top: calc(1ch / 4);
+  padding-bottom: calc(1ch / 4);
+  margin-left: var(--list-indent);
+}
+
+main ol li::before {
+  content: counter(ol-counter) ".";
+  position: absolute;
+  left: calc(-1 * var(--list-indent));
+  width: var(--list-indent);
+  text-align: left;
+  top: 0.15em;
+  color: var(--list-marker-color);
+  font-variant-numeric: tabular-nums;
+}

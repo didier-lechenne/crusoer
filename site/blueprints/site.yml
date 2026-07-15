@@ -1,0 +1,332 @@
+# =============================================================================
+# Blueprint de l'écran « Site » du Panel (kirby → Panel → Site).
+#
+# Les boutons de type `janitor` déclenchent chacun une commande PHP située
+# dans site/commands/*.php (également utilisables en ligne de commande :
+# php vendor/bin/kirby <commande>).
+#
+# Les commentaires (lignes commençant par #) sont ignorés par Kirby :
+# ils ne servent qu'à la personne qui modifie ce fichier.
+# =============================================================================
+
+title: Site
+
+tabs:
+  # ---------------------------------------------------------------------------
+  # Onglet 1 : liste de toutes les publications (le contenu principal du site)
+  # ---------------------------------------------------------------------------
+  toutes_rubriques:
+    label:
+      fr: Toutes les rubriques
+      en: Toutes les rubriques
+    icon: folder
+    columns:
+      - width: 1/1
+        sections:
+          projects:
+            extends: sections/publications
+
+  # ---------------------------------------------------------------------------
+  # Onglet 2 : les pages fixes (À propos, Mentions légales)
+  # ---------------------------------------------------------------------------
+  pagestatic:
+    label:
+      fr: Page statique
+      en: Static page
+    icon: cog
+    columns:
+      - width: 1/1
+        sections:
+          pages:
+            type: pages
+            status: all
+            templates:
+              - about
+              - mentions-legales
+
+  # ---------------------------------------------------------------------------
+  # Onglet 3 : apparence, publication du site et maintenance
+  # ---------------------------------------------------------------------------
+  configuration:
+    label:
+      en: Publier
+      fr: Plublier
+    columns:
+      - width: 1/1
+        sections:
+          # --- Publier le site : 3 étapes, dans l'ordre ------------------------
+          actions:
+            type: fields
+            label:
+              fr: Publier le site
+              en: Publish the site
+            fields:
+              # Petit mode d'emploi affiché au-dessus des boutons
+              publicationInfo:
+                type: info
+                label:
+                  fr: Comment publier ?
+                  en: How to publish?
+                text:
+                  fr: >
+                    La première fois : lancer « 1. Générer le site en entier ».
+                    Au quotidien : activer « 2. La mise à jour automatique »,
+                    modifier le contenu, puis « 3. Vérifier le résultat »
+                    et « 4. Mettre en ligne ».
+                  en: >
+                    First time: run “1. Generate the whole site”.
+                    Day to day: enable “2. Automatic update”, edit the content,
+                    then “3. Check the result” and “4. Publish online”.
+
+              # Étape 1 → site/commands/generate-11ty.php
+              # (lance « npm run build » dans /11ty, en arrière-plan)
+              generate11ty:
+                type: janitor
+                command: "generate-11ty"
+                icon: cog
+                label:
+                  en: 1. Generate the whole site
+                  fr: 1. Générer le site en entier
+                progress:
+                  en: Generating…
+                  fr: Génération en cours…
+                ok:
+                  en: Generation launched
+                  fr: Génération lancée
+                help:
+                  fr: >
+                    Fabrique la totalité du site publiable à partir du contenu.
+                    À faire une seule fois (ou après une grosse modification),
+                    ensuite la mise à jour automatique suffit. La génération
+                    continue en arrière-plan pendant une vingtaine de secondes.
+                  en: >
+                    Builds the entire publishable site from the content.
+                    Needed only once (or after a major change); after that the
+                    automatic update is enough. Generation keeps running in the
+                    background for about twenty seconds.
+                width: 1/1
+
+              # Étape 2 → site/commands/watch.php
+              # (lance « npm run serve » dans /11ty, en tâche de fond ; ne
+              # régénère rien au démarrage : à chaque enregistrement dans le
+              # Panel, seul ce qui a changé est mis à jour dans /static)
+              # Libellé et couleurs dynamiques : quand le mécanisme tourne,
+              # fond vert clair + texte noir + libellé « ACTIVE » (queries
+              # résolues au chargement du Panel → site/plugins/crusoer-panel)
+              watchContent:
+                type: janitor
+                command: "watch"
+                icon: play
+                backgroundColor: "{{ site.watchButtonColor }}"
+                color: "{{ site.watchButtonTextColor }}"
+                label:
+                  en: "{{ site.watchButtonLabel('en') }}"
+                  fr: "{{ site.watchButtonLabel('fr') }}"
+                progress:
+                  en: Starting…
+                  fr: Démarrage en cours…
+                ok:
+                  en: Automatic update enabled
+                  fr: Mise à jour automatique active
+                help:
+                  fr: >
+                    À activer une fois, au début d'une séance de modifications.
+                    Ensuite, chaque « Enregistrer » met à jour tout seul, en
+                    tâche de fond, ce qui a changé dans le site publiable.
+                  en: >
+                    Enable it once, at the start of an editing session. After
+                    that, every “Save” updates what changed in the publishable
+                    site by itself, in the background.
+                width: 1/2
+              # → site/commands/watch-stop.php
+              # (arrête le « npm run serve » lancé par le bouton 2 ; après
+              # l'arrêt le Panel se recharge et le bouton 2 redevient gris)
+              watchStop:
+                type: janitor
+                command: "watch-stop"
+                icon: cancel
+                label:
+                  en: Stop the automatic update
+                  fr: Arrêter la mise à jour automatique
+                progress:
+                  en: Stopping…
+                  fr: Arrêt en cours…
+                ok:
+                  en: Stopped
+                  fr: Arrêtée
+                help:
+                  fr: >
+                    Arrête le mécanisme lancé par « 2. Activer la mise à jour
+                    automatique ». Sans effet s'il ne tourne pas. (Il s'arrête
+                    de toute façon à l'extinction de l'ordinateur.)
+                  en: >
+                    Stops the mechanism started by “2. Enable automatic
+                    update”. Has no effect if it is not running. (It stops
+                    anyway when the computer is shut down.)
+                width: 1/2
+
+              # Étape 3 → site/commands/preview.php
+              # (sert le dossier /static tel quel sur http://localhost:8081)
+              previewStatic:
+                type: janitor
+                command: "preview"
+                icon: preview
+                intab: true
+                theme: success
+                label:
+                  en: 3. Check the result
+                  fr: 3. Vérifier le résultat
+                progress:
+                  en: Opening the preview…
+                  fr: Ouverture de la prévisualisation…
+                ok:
+                  en: Preview opened
+                  fr: Prévisualisation ouverte
+                help:
+                  fr: >
+                    Ouvre dans un nouvel onglet la version exacte du site qui
+                    sera mise en ligne, pour la contrôler avant publication.
+                  en: >
+                    Opens in a new tab the exact version of the site that will
+                    go online, so you can check it before publishing.
+                width: 1/1
+
+              # Étape 4 → site/commands/deploy.php
+              # (envoie /static chez Deuxfleurs via dxfl ; clés S3 dans
+              # site/config/config.secrets.php ; dxfl ne transfère que les
+              # fichiers modifiés)
+              deployDeuxfleurs:
+                type: janitor
+                command: deploy
+                icon: upload
+                label:
+                  en: 4. Publish online
+                  fr: 4. Mettre en ligne
+                progress:
+                  en: Publishing…
+                  fr: Mise en ligne en cours…
+                ok:
+                  en: Site online
+                  fr: Site en ligne
+                help:
+                  fr: >
+                    Publie le site sur https://www.crusoer.fr
+                    (hébergeur : Deuxfleurs). Seuls les fichiers modifiés
+                    sont transférés.
+                  en: >
+                    Publishes the site at https://www.crusoer.fr
+                    (host: Deuxfleurs). Only modified files are transferred.
+                width: 1/1
+
+              # Champ rempli automatiquement par site/commands/deploy.php
+              lastDeploy:
+                label:
+                  en: ""
+                  fr: ""
+                type: text
+                disabled: true
+                help:
+                  en: Last publication
+                  fr: Dernière mise en ligne
+
+  colors:
+    label:
+      fr: Couleurs
+      en: Colors
+    icon: cog
+    columns:
+      - width: 1/1
+        sections:
+          # --- Couleurs du site ------------------------------------------------
+          couleurs:
+            type: fields
+            label:
+              fr: Apparence
+              en: Appearance
+            fields:
+              backgroundColorSombre:
+                label:
+                  en: Background color (dark theme)
+                  fr: Couleur du fond (thème sombre)
+                type: color
+                format: rgb
+                alpha: true
+                default: "#262626"
+                help:
+                  fr: Couleur du fond de page quand le site est affiché en thème sombre.
+                  en: Page background color when the site is displayed in dark theme.
+                width: 1/4
+
+              backgroundColorClair:
+                label:
+                  en: Background color (light theme)
+                  fr: Couleur du fond (thème clair)
+                type: color
+                format: rgb
+                alpha: true
+                default: "#f5f5f5"
+                help:
+                  fr: Couleur du fond de page quand le site est affiché en thème clair.
+                  en: Page background color when the site is displayed in light theme.
+                width: 1/4
+
+  maintenance:
+    label:
+      en: Maintenance
+      fr: Maintenance
+    columns:
+      - width: 1/1
+        sections:
+          maintenanceFields:
+            type: fields
+            label:
+              fr: Maintenance
+              en: Maintenance
+            fields:
+              # → site/commands/update-kirby.php
+              # (git fetch + checkout du dernier tag de la même version majeure)
+              updateKirby:
+                type: janitor
+                command: "update-kirby"
+                icon: refresh
+                label:
+                  en: Update Kirby (the site's software)
+                  fr: Mettre à jour Kirby (le logiciel du site)
+                progress:
+                  en: Checking for updates…
+                  fr: Recherche de mise à jour…
+                ok:
+                  en: Done
+                  fr: Terminé
+                help:
+                  fr: >
+                    Installe la dernière version de Kirby. À faire quand le
+                    Panel affiche des avertissements de sécurité.
+                  en: >
+                    Installs the latest Kirby release. Run it when the Panel
+                    shows security warnings.
+                width: 1/1
+
+              # → site/commands/generate-static.php
+              # (ancien générateur PHP « jr.static_site_generator », gardé en secours)
+              generateStatic:
+                type: janitor
+                command: "generate-static"
+                icon: box
+                label:
+                  en: Generate the site (old method)
+                  fr: Générer le site (ancienne méthode)
+                progress:
+                  en: Generating…
+                  fr: Génération en cours…
+                ok:
+                  en: Done
+                  fr: Terminé
+                help:
+                  fr: >
+                    Ancien générateur, gardé en secours. Utiliser normalement
+                    le bouton « 1. Générer le site ».
+                  en: >
+                    Old generator, kept as a fallback. Normally use the
+                    “1. Generate the site” button.
+                width: 1/1
