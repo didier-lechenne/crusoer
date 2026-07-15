@@ -50,7 +50,7 @@ tabs:
   configuration:
     label:
       en: Publier
-      fr: Plublier
+      fr: Publier
     columns:
       - width: 1/1
         sections:
@@ -132,13 +132,11 @@ tabs:
                   fr: >
                     À activer une fois, au début d'une séance de modifications.
                     Ensuite, chaque « Enregistrer » met à jour tout seul, en
-                    tâche de fond, ce qui a changé dans le site publiable,
-                    visible sur http://localhost:8080
+                    tâche de fond.
                   en: >
                     Enable it once, at the start of an editing session. After
                     that, every “Save” updates what changed in the publishable
-                    site by itself, in the background — visible at
-                    http://localhost:8080
+                    site by itself, in the background.
                 width: 1/2
               # → site/commands/watch-stop.php
               # (arrête le « npm run serve » lancé par le bouton 2 ; après
@@ -188,9 +186,11 @@ tabs:
                   fr: >
                     Ouvre dans un nouvel onglet la version exacte du site qui
                     sera mise en ligne, pour la contrôler avant publication.
+                    http://localhost:8080
                   en: >
                     Opens in a new tab the exact version of the site that will
                     go online, so you can check it before publishing.
+                    http://localhost:8080
                 width: 1/1
 
               # Étape 4 → site/commands/deploy.php
