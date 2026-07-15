@@ -1,4 +1,4 @@
-import { kirbyUrl, warmMedia } from "./_data/kql.js";
+import { kirbyUrl, warmMedia, clearKqlCache } from "./_data/kql.js";
 import publicationsData from "./_data/publications.js";
 import aboutData from "./_data/about.js";
 import mentionsData from "./_data/mentions.js";
@@ -10,6 +10,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "../media/plugins": "media/plugins" });
 
   eleventyConfig.on("eleventy.before", async () => {
+    clearKqlCache();
+
     const [publications, about, mentions] = await Promise.all([
       publicationsData(),
       aboutData(),
