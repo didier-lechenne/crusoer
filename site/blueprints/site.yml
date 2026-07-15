@@ -132,11 +132,13 @@ tabs:
                   fr: >
                     À activer une fois, au début d'une séance de modifications.
                     Ensuite, chaque « Enregistrer » met à jour tout seul, en
-                    tâche de fond, ce qui a changé dans le site publiable.
+                    tâche de fond, ce qui a changé dans le site publiable,
+                    visible sur http://localhost:8080
                   en: >
                     Enable it once, at the start of an editing session. After
                     that, every “Save” updates what changed in the publishable
-                    site by itself, in the background.
+                    site by itself, in the background — visible at
+                    http://localhost:8080
                 width: 1/2
               # → site/commands/watch-stop.php
               # (arrête le « npm run serve » lancé par le bouton 2 ; après
