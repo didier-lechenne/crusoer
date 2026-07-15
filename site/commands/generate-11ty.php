@@ -23,15 +23,25 @@ return [
         $isWin = DIRECTORY_SEPARATOR === '\\';
         $null  = $isWin ? 'NUL' : '/dev/null';
 
+        // Transmet l'URL du Kirby courant au build 11ty (KIRBY_URL), pour que
+        // chaque installation construise contre son propre Kirby — sans quoi
+        // kql.js retombe sur son URL par défaut, celle d'une autre machine.
+        // En CLI l'URL peut être relative ("/") : on laisse alors le défaut.
+        $kirbyUrl = site()->url();
+        $passUrl  = str_starts_with($kirbyUrl, 'http');
+
         @file_put_contents($logFile, date('c') . " build lancé\n", FILE_APPEND);
 
         // `< NUL` : donne à node un STDIN vide mais valide (cf. deploy.php)
         if ($isWin) {
+            // Pas d'espace avant `&&` : cmd l'inclurait dans la valeur.
+            $env = $passUrl ? 'set KIRBY_URL=' . $kirbyUrl . '&& ' : '';
             $cmd = 'cd /D ' . escapeshellarg($eleventyDir)
-                 . ' && npm run build < ' . $null . ' 2>&1';
+                 . ' && ' . $env . 'npm run build < ' . $null . ' 2>&1';
         } else {
+            $env = $passUrl ? 'KIRBY_URL=' . escapeshellarg($kirbyUrl) . ' ' : '';
             $cmd = 'cd ' . escapeshellarg($eleventyDir)
-                 . ' && npm run build < ' . $null . ' 2>&1';
+                 . ' && ' . $env . 'npm run build < ' . $null . ' 2>&1';
         }
 
         exec($cmd, $out, $code);
