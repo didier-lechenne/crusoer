@@ -145,8 +145,6 @@ php vendor/bin/kirby deploy    # envoie ./static chez Deuxfleurs
 |---|---|
 | `kirby` | [getkirby/kirby](https://github.com/getkirby/kirby) |
 | `site/plugins/orthotypo` | [julienbidoret/orthotypo](https://codeberg.org/julienbidoret/orthotypo) *(puis `composer install` dans le dossier du plugin)* |
-| `site/plugins/kirby3-feed` | [bnomei/kirby3-feed](https://github.com/bnomei/kirby3-feed) *(à réintégrer : `git submodule update --init site/plugins/kirby3-feed`)* |
-
 ### Composer (`composer install`)
 
 | Paquet | Usage |

@@ -6,6 +6,3 @@
 [submodule "site/plugins/orthotypo"]
 	path = site/plugins/orthotypo
 	url = https://codeberg.org/julienbidoret/orthotypo.git
-[submodule "site/plugins/kirby3-feed"]
-	path = site/plugins/kirby3-feed
-	url = https://github.com/bnomei/kirby3-feed.git
